@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-appsearch-dev/static/css/main.073c9b0a.css",
+    "main.js": "/react-appsearch-dev/static/js/main.d9982b25.js",
+    "static/js/787.a42af295.chunk.js": "/react-appsearch-dev/static/js/787.a42af295.chunk.js",
+    "static/media/logo.svg": "/react-appsearch-dev/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-appsearch-dev/index.html",
+    "main.073c9b0a.css.map": "/react-appsearch-dev/static/css/main.073c9b0a.css.map",
+    "main.d9982b25.js.map": "/react-appsearch-dev/static/js/main.d9982b25.js.map",
+    "787.a42af295.chunk.js.map": "/react-appsearch-dev/static/js/787.a42af295.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.d9982b25.js"
+  ]
+}
