@@ -4,6 +4,10 @@
   "private": true,
   "homepage": "https://BOUDARI-MEHDI.github.io/react-appsearch-dev",
   "dependencies": {
+    "@elastic/react-search-ui": "^1.12.1",
+    "@elastic/react-search-ui-views": "^1.12.1",
+    "@elastic/search-ui": "^1.12.1",
+    "@elastic/search-ui-app-search-connector": "^1.12.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
