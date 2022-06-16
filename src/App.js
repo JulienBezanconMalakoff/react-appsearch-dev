@@ -43,9 +43,9 @@ const config = {
           fallback: true
         }
        },
-       /*nps_link: {
+       nps_link: {
          raw: {}
-       },*/
+       },
        content: {
          snippet: {
            size: 1000, 
