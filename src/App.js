@@ -43,9 +43,9 @@ const config = {
           fallback: true
         }
        },
-       nps_link: {
+       /*nps_link: {
          raw: {}
-       },
+       },*/
        content: {
          snippet: {
            size: 1000, 
@@ -73,16 +73,16 @@ const config = {
         type: "range",
         ranges: [
           {
-            from: '1577889783',
+            from: '2020-01-01T01:01:33.420Z',
             name: "Les anciens documents"
           },
           {
-            from: '1609459203',
-            to: '1640991543',
+            from: '2021-01-01T01:01:33.420Z',
+            to: '2021-12-31T23:59:33.420Z',
             name: "Les documents en 2021"
           },
           {
-            to: '1640995203',
+            to: '2022-01-01T01:01:33.420Z',
             name: "Les documents de 2022"
           }
         ]
@@ -92,12 +92,12 @@ const config = {
         ranges: [
 
           {
-            from: '1609459203',
-            to: '1640991543',
+            from: '2021-01-01T01:01:33.420Z',
+            to: '2021-12-31T23:59:33.420Z',
             name: "Document modifié en 2021"
           },
           {
-            to: '1640995203',
+            to: '2022-01-01T01:01:33.420Z',
             name: "Document modifié cette année"
           }
         ]
