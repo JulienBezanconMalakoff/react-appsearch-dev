@@ -1,32 +1,20 @@
-import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 import React from "react";
-
-import {
-  ErrorBoundary,
-  Facet,
-  SearchProvider,
-  SearchBox,
-  Results,
-  PagingInfo,
-  ResultsPerPage,
-  Paging,
-  Sorting,
-  WithSearch
-} from "@elastic/react-search-ui";
-import {
-  BooleanFacet,
-  Layout,
-  SingleLinksFacet,
-  SingleSelectFacet
-} from "@elastic/react-search-ui-views";
+// script ELK APP Search
+import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
+import { ErrorBoundary, Facet, SearchProvider, SearchBox, Results, PagingInfo, ResultsPerPage, Paging, WithSearch } from "@elastic/react-search-ui";
+import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
+// Css Custom for ELK App Search
 import "../src/search.css"
 
+// connector App Search
 const connector = new AppSearchAPIConnector({
   searchKey: "search-asrw1c4rzo3b5nx7e7qea3dv",
   engineName: "qpm-search-dev",
   endpointBase: "https://engine-romain.ent.eu-west-3.aws.elastic-cloud.com"
 });
+
+// Configuration App Search
 const config = {
   debug: true,
   alwaysSearchOnInitialLoad: true,
@@ -105,6 +93,27 @@ const config = {
     }
   }
 };
+// customizing Search-result HTML
+const CustomResultView = (
+  { result, onClickLink }: {
+  result: SearchResult;
+  onClickLink: () => void;
+}) => (
+<li className="sui-result">
+  <div className="sui-result__header">
+    <h3>
+        {/* Maintain onClickLink to correct track click throughs for analytics*/}
+        <a onClick={onClickLink} href={result.nps_link.raw} target="blank">
+          {result.document.snippet}
+        </a>
+      </h3>
+  </div>
+    <div className="sui-result__body">     
+      {/* Use the 'snippet' property of fields with dangerouslySetInnerHtml to render snippets */}
+      <div className="sui-result__details" dangerouslySetInnerHTML={{ __html: result.content.snippet }}></div>
+    </div>
+</li>
+);
 export default function App() {
   return (
     <SearchProvider config={config}>
@@ -117,18 +126,45 @@ export default function App() {
           return (
             <div className="App">
               <ErrorBoundary>
+                <div className="sui-layout">
+                  <div className="sui-layout-header">
+                    <div className="sui-layout-header__inner">
                 <Layout
                   header={
-                  <SearchBox 
-                    autocompleteResults={{
-                    sectionTitle: "Suggested Results",
-                    titleField: "title",
-                    urlField: "nps_link",
-                  }}
-                  autocompleteSuggestions={{
-                    sectionTitle: "Suggested Queries"
-                  }}                                   
-                    /*debounceLength={0}*/ />}
+                    // Section header SearchBox 
+                    <SearchBox
+                    inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
+                    <>
+                    <div className="sui-search-box__wrapper">
+                      <input 
+                        {...getInputProps ({ placeholder: "Je saisie ma recherche ici !"  }) }
+                      />
+                        {getAutocomplete({
+                        "sectionTitle": "Suggested Results",
+                        "titleField": "title",
+                        "urlField": "nps_link", 
+                        })
+                      }
+                    </div>
+                    <input
+                      {...getButtonProps({
+                        "data-custom-attr": "some value",
+                        "value": "rechercher"
+                        })
+                      }
+                    />
+                    </>
+                    )}
+                    autocompleteSuggestions={
+                      {
+                        documents: {
+                        sectionTitle: "Suggested Queries",
+                        },
+                        popular_queries: {
+                          sectionTitle: "Popular Queries"
+                        }
+                      }} /*debounceLength={0}*/ />
+                  }
                   sideContent={
                   // lateral sidebar
                   <div>
@@ -167,12 +203,14 @@ export default function App() {
                     filterType="any"
                     />
                     </div>}
+                    // section body
                   bodyContent={
                     <Results
+                      resultView={CustomResultView}
                       titleField="document"
                       urlField="nps_link"
                       thumbnailField="image_url"
-                      shouldTrackClickThrough
+                      shouldTrackClickThrough={true}
                     />
                   }
                   bodyHeader={
@@ -183,6 +221,7 @@ export default function App() {
                   }
                   bodyFooter={<Paging />}
                 />
+              </div></div></div>
               </ErrorBoundary>
             </div>
           );
