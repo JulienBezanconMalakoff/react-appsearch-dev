@@ -9,9 +9,9 @@ import "../src/search.css"
 
 // connector App Search
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-asrw1c4rzo3b5nx7e7qea3dv",
-  engineName: "qpm-search-dev",
-  endpointBase: "https://engine-romain.ent.eu-west-3.aws.elastic-cloud.com"
+  searchKey: "search-1grk3k8rqdkben8rus3u5e46",
+  engineName: "search-engine",
+  endpointBase: "https://search-elastic.ent.eu-west-3.aws.elastic-cloud.com"
 });
 
 // Configuration App Search
@@ -24,13 +24,15 @@ const config = {
     result_fields: {
       // section result field
       title: { 
-        raw: {} 
+          snippet: {
+            fallback: true
+        } 
       },
-      document: {
+     /* document: {
         snippet: {
           fallback: true
         }
-       },
+       }, */
        nps_link: {
          raw: {}
        },
@@ -43,11 +45,11 @@ const config = {
     },
     search_fields: {
       // section search field for searchbar
-      document: {
-        weight: 5
+      title: {
+        weight: 10
       },
       content: {
-        weight: 10
+        weight: 7
       }
     },
     disjunctiveFacets: [""],
@@ -104,7 +106,7 @@ const CustomResultView = (
     <h3>
         {/* Maintain onClickLink to correct track click throughs for analytics*/}
         <a onClick={onClickLink} href={result.nps_link.raw} target="blank">
-          {result.document.snippet}
+          {result.title.snippet}
         </a>
       </h3>
   </div>
@@ -113,7 +115,8 @@ const CustomResultView = (
       <div className="sui-result__details" dangerouslySetInnerHTML={{ __html: result.content.snippet }}></div>
     </div>
 </li>
-);
+); 
+  
 export default function App() {
   return (
     <SearchProvider config={config}>
@@ -207,7 +210,7 @@ export default function App() {
                   bodyContent={
                     <Results
                       resultView={CustomResultView}
-                      titleField="document"
+                      titleField="title"
                       urlField="nps_link"
                       thumbnailField="image_url"
                       shouldTrackClickThrough={true}
