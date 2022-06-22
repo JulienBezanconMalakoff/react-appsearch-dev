@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>✏️ Icones/32/Recherche/search</title>
+    <defs>
+        <path d="M14,0 C21.7319865,0 28,6.2680135 28,14 C28,17.5059904 26.7112484,20.7109768 24.5816294,23.1670751 L31.2426407,29.8284271 C31.633165,30.2189514 31.633165,30.8521164 31.2426407,31.2426407 C30.8521164,31.633165 30.2189514,31.633165 29.8284271,31.2426407 L23.1670751,24.5816294 C20.7109768,26.7112484 17.5059904,28 14,28 C6.2680135,28 0,21.7319865 0,14 C0,6.2680135 6.2680135,0 14,0 Z M14,2 C7.372583,2 2,7.372583 2,14 C2,20.627417 7.372583,26 14,26 C20.627417,26 26,20.627417 26,14 C26,7.372583 20.627417,2 14,2 Z" id="path-1"></path>
+    </defs>
+    <g id="✏️-Icones/32/Recherche/search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="search" fill="#222222" xlink:href="#path-1"></use>
+    </g>
+</svg>

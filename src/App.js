@@ -5,7 +5,8 @@ import { ErrorBoundary, Facet, SearchProvider, SearchBox, Results, PagingInfo, R
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 // Css Custom for ELK App Search
-import "../src/search.css"
+import "../src/search.css";
+import searchUi from '../src/assets/searchUi.svg';
 
 // connector App Search
 const connector = new AppSearchAPIConnector({
@@ -28,11 +29,6 @@ const config = {
             fallback: true
         } 
       },
-     /* document: {
-        snippet: {
-          fallback: true
-        }
-       }, */
        nps_link: {
          raw: {}
        },
@@ -41,6 +37,12 @@ const config = {
            size: 1000, 
            fallback: true
          }
+       },
+       page: {
+        raw: {}
+       },
+       paragraph: {
+        raw: {}
        }
     },
     search_fields: {
@@ -110,9 +112,15 @@ const CustomResultView = (
         </a>
       </h3>
   </div>
-    <div className="sui-result__body">     
+    <div className="sui-result__body">
       {/* Use the 'snippet' property of fields with dangerouslySetInnerHtml to render snippets */}
-      <div className="sui-result__details" dangerouslySetInnerHTML={{ __html: result.content.snippet }}></div>
+      <div className="sui-result__details" dangerouslySetInnerHTML={{ __html: result.content.snippet }}>
+        
+      </div>
+    </div>
+    <div className="sui-result__button" >
+      <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled>Page : {result.page.raw} </button>
+      <button className="sui-result__button-paragraph" type="button" alt="tag paragraphe bouton non cliquable" disabled>Paragraphe : {result.paragraph.raw} </button>
     </div>
 </li>
 ); 
@@ -138,7 +146,12 @@ export default function App() {
                     <SearchBox
                     inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
                     <>
+                    <div className="sui-search-box__wrapper-iconSearch">
+      <img src={searchUi} alt="icone recherche"></img>
+
+</div>
                     <div className="sui-search-box__wrapper">
+                    
                       <input 
                         {...getInputProps ({ placeholder: "Je saisie ma recherche ici !"  }) }
                       />
@@ -151,16 +164,19 @@ export default function App() {
                     </div>
                     <input
                       {...getButtonProps({
+                        
                         "data-custom-attr": "some value",
                         "value": "rechercher"
                         })
+                        
                       }
                     />
+                    
                     </>
                     )}
                     autocompleteSuggestions={
                       {
-                        documents: {
+                        title: {
                         sectionTitle: "Suggested Queries",
                         },
                         popular_queries: {
@@ -233,3 +249,4 @@ export default function App() {
     </SearchProvider>
   );
 }
+
