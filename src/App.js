@@ -10,9 +10,9 @@ import searchUi from '../src/assets/searchUi.svg';
 
 // connector App Search
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-1grk3k8rqdkben8rus3u5e46",
-  engineName: "search-engine",
-  endpointBase: "https://search-elastic.ent.eu-west-3.aws.elastic-cloud.com"
+  searchKey: "search-r4uskji8opxzj21mkemyctys",
+  engineName: "thales-canton",
+  endpointBase: "https://search.ent.eu-west-3.aws.elastic-cloud.com"
 });
 
 // Configuration App Search
@@ -22,6 +22,15 @@ const config = {
   apiConnector: connector,
   hasA11yNotifications: true,
   searchQuery: {
+    search_fields: {
+      // section search field for searchbar
+      title: {
+        weight: 10
+      },
+      content: {
+        weight: 7
+      }
+    },
     result_fields: {
       // section result field
       title: { 
@@ -44,16 +53,7 @@ const config = {
        paragraph: {
         raw: {}
        }
-    },
-    search_fields: {
-      // section search field for searchbar
-      title: {
-        weight: 10
-      },
-      content: {
-        weight: 7
-      }
-    },
+    },  
     disjunctiveFacets: [""],
     facets: {
       // section facet parameter
@@ -201,7 +201,7 @@ export default function App() {
                     />
                     <Facet
                     field="extension"
-                    label="extention"
+                    label="extension"
                     filterType="any"
                     isFilterable={false}
                     />
