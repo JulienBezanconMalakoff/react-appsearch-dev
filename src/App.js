@@ -11,7 +11,7 @@ import searchUi from '../src/assets/searchUi.svg';
 // connector App Search
 const connector = new AppSearchAPIConnector({
   searchKey: "search-r4uskji8opxzj21mkemyctys",
-  engineName: "thales-canton",
+  engineName: "merge-thales-canton-qpm-toutella",
   endpointBase: "https://search.ent.eu-west-3.aws.elastic-cloud.com"
 });
 
@@ -25,10 +25,10 @@ const config = {
     search_fields: {
       // section search field for searchbar
       title: {
-        weight: 10
+        weight: 1
       },
       content: {
-        weight: 7
+        weight: 1
       }
     },
     result_fields: {
@@ -131,6 +131,7 @@ export default function App() {
       <WithSearch
         mapContextToProps={({ wasSearched }) => ({
           wasSearched
+
         })}
       >
         {({ wasSearched }) => {
@@ -144,12 +145,12 @@ export default function App() {
                   header={
                     // Section header SearchBox 
                     <SearchBox
+
                     inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
                     <>
                     <div className="sui-search-box__wrapper-iconSearch">
-      <img src={searchUi} alt="icone recherche"></img>
-
-</div>
+                      <img src={searchUi} alt="icone recherche"></img> 
+                    </div>
                     <div className="sui-search-box__wrapper">
                     
                       <input 
