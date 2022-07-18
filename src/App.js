@@ -10,9 +10,9 @@ import searchUi from '../src/assets/searchUi.svg';
 
 // connector App Search
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-r4uskji8opxzj21mkemyctys",
-  engineName: "merge-thales-canton-qpm-toutella",
-  endpointBase: "https://search.ent.eu-west-3.aws.elastic-cloud.com"
+  searchKey: "search-x641r3c42o18p7tarutobyzt",
+  engineName: "merge_canton_thales_qpm_toutella_all_in_facet",
+  endpointBase: "https://team-search.es.eu-west-3.aws.elastic-cloud.com"
 });
 
 // Configuration App Search
