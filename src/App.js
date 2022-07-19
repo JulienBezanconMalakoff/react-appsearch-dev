@@ -49,18 +49,17 @@ const config = {
        },
        page: {
         raw: {}
-       },
-       paragraph: {
-        raw: {}
        }
     },  
     disjunctiveFacets: [""],
     facets: {
       // section facet parameter
       facet: { type: "value" },
-      author: { type: "value"},
-      extension: { type: "value"},
-      page: { type: "value"},
+      origine: { type: "value" },
+      grand_compte: { type: "value" },
+      //author: { type: "value"},
+      //extension: { type: "value"},
+      //page: { type: "value"},
       creation_date: {
         type: "range",
         ranges: [
@@ -76,6 +75,10 @@ const config = {
           {
             to: '2022-01-01T01:01:33.420Z',
             name: "Les documents de 2022"
+          },
+          {
+            to: '9999-01-01T01:01:33.420Z',
+            name: "non précisé"
           }
         ]
       },
@@ -91,6 +94,10 @@ const config = {
           {
             to: '2022-01-01T01:01:33.420Z',
             name: "Document modifié cette année"
+          },
+          {
+            to: '9999-01-01T01:01:33.420Z',
+            name: "non précisé"
           }
         ]
       },
