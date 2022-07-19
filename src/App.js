@@ -11,8 +11,8 @@ import searchUi from '../src/assets/searchUi.svg';
 // connector App Search
 const connector = new AppSearchAPIConnector({
   searchKey: "search-x641r3c42o18p7tarutobyzt",
-  engineName: "merge_canton_thales_qpm_toutella_all_in_facet",
-  endpointBase: "https://team-search.es.eu-west-3.aws.elastic-cloud.com"
+  engineName: "merge-canton-thales-qpm-toutella",
+  endpointBase: "https://team-search.ent.eu-west-3.aws.elastic-cloud.com"
 });
 
 // Configuration App Search
@@ -56,29 +56,27 @@ const config = {
       // section facet parameter
       facet: { type: "value" },
       origine: { type: "value" },
-      grand_compte: { type: "value" },
-      //author: { type: "value"},
-      //extension: { type: "value"},
-      //page: { type: "value"},
+      grand_compte: { type: "value" },   
       creation_date: {
         type: "range",
         ranges: [
           {
             from: '2020-01-01T01:01:33.420Z',
-            name: "Les anciens documents"
+            name: "Anciens documents"
           },
           {
             from: '2021-01-01T01:01:33.420Z',
             to: '2021-12-31T23:59:33.420Z',
-            name: "Les documents en 2021"
+            name: "Documents en 2021"
           },
           {
-            to: '2022-01-01T01:01:33.420Z',
-            name: "Les documents de 2022"
+            from: '2022-01-01T01:01:33.420Z',
+            to: '2022-12-31T23:59:33.420Z',
+            name: "Documents en 2022"
           },
           {
             to: '9999-01-01T01:01:33.420Z',
-            name: "non précisé"
+            name: "Non précisé"
           }
         ]
       },
@@ -89,15 +87,15 @@ const config = {
           {
             from: '2021-01-01T01:01:33.420Z',
             to: '2021-12-31T23:59:33.420Z',
-            name: "Document modifié en 2021"
+            name: "Modifiés en 2021"
           },
           {
             to: '2022-01-01T01:01:33.420Z',
-            name: "Document modifié cette année"
+            name: "Modifiés cette année"
           },
           {
             to: '9999-01-01T01:01:33.420Z',
-            name: "non précisé"
+            name: "Non précisé"
           }
         ]
       },
@@ -127,7 +125,6 @@ const CustomResultView = (
     </div>
     <div className="sui-result__button" >
       <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled>Page : {result.page.raw} </button>
-      <button className="sui-result__button-paragraph" type="button" alt="tag paragraphe bouton non cliquable" disabled>Paragraphe : {result.paragraph.raw} </button>
     </div>
 </li>
 ); 
@@ -197,19 +194,19 @@ export default function App() {
                   <div>
                     <Facet
                     field="facet"
-                    label="filtres"
+                    label="Filtres"
                     filterType="any"
                     isFilterable={true}
                     />
                     <Facet
                     field="origine"
-                    label="origine"
+                    label="Origine"
                     filterType="any"
                     isFilterable={true}
                     />
                     <Facet
                     field="grand_compte"
-                    label="grand compte"
+                    label="Grand compte"
                     filterType="any"
                     isFilterable={false}
                     />
