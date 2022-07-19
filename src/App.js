@@ -197,25 +197,19 @@ export default function App() {
                   <div>
                     <Facet
                     field="facet"
-                    label="Grand-compte"
+                    label="filtres"
                     filterType="any"
                     isFilterable={true}
                     />
                     <Facet
-                    field="author"
-                    label="Auteur"
+                    field="origine"
+                    label="origine"
                     filterType="any"
                     isFilterable={true}
                     />
                     <Facet
-                    field="extension"
-                    label="extension"
-                    filterType="any"
-                    isFilterable={false}
-                    />
-                    <Facet
-                    field="page"
-                    label="pages"
+                    field="grand_compte"
+                    label="grand compte"
                     filterType="any"
                     isFilterable={false}
                     />
