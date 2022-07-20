@@ -49,6 +49,9 @@ const config = {
        },
        page: {
         raw: {}
+       },
+       origine: {
+        raw: {}
        }
     },  
     disjunctiveFacets: [""],
@@ -61,7 +64,7 @@ const config = {
         type: "range",
         ranges: [
           {
-            from: '2020-01-01T01:01:33.420Z',
+            to: '2020-01-01T01:01:33.420Z',
             name: "Anciens documents"
           },
           {
@@ -75,7 +78,7 @@ const config = {
             name: "Documents en 2022"
           },
           {
-            to: '9999-01-01T01:01:33.420Z',
+            from: '9998-01-01T01:01:33.420Z',
             name: "Non précisé"
           }
         ]
@@ -90,11 +93,12 @@ const config = {
             name: "Modifiés en 2021"
           },
           {
-            to: '2022-01-01T01:01:33.420Z',
+            from: '2022-01-01T01:01:33.420Z',
+            to: '2022-12-31T01:01:33.420Z',
             name: "Modifiés cette année"
           },
           {
-            to: '9999-01-01T01:01:33.420Z',
+            to: '9998-01-01T01:01:33.420Z',
             name: "Non précisé"
           }
         ]
@@ -125,6 +129,7 @@ const CustomResultView = (
     </div>
     <div className="sui-result__button" >
       <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled>Page : {result.page.raw} </button>
+      <button className="sui-result__button-origine" type="button" alt="tag origine bouton non cliquable" disabled>Origine : {result.origine.raw} </button>
     </div>
 </li>
 ); 
@@ -193,20 +198,14 @@ export default function App() {
                   // lateral sidebar
                   <div>
                     <Facet
-                    field="facet"
-                    label="Filtres"
+                    field="grand_compte"
+                    label="Grand compte"
                     filterType="any"
                     isFilterable={true}
                     />
                     <Facet
                     field="origine"
                     label="Origine"
-                    filterType="any"
-                    isFilterable={true}
-                    />
-                    <Facet
-                    field="grand_compte"
-                    label="Grand compte"
                     filterType="any"
                     isFilterable={false}
                     />
