@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/react-appsearch-dev/static/css/main.27b23324.css",
-    "main.js": "/react-appsearch-dev/static/js/main.9dedb7e3.js",
+    "main.js": "/react-appsearch-dev/static/js/main.0dbd4f21.js",
     "static/js/787.a42af295.chunk.js": "/react-appsearch-dev/static/js/787.a42af295.chunk.js",
     "static/media/searchUi.svg": "/react-appsearch-dev/static/media/searchUi.d7ed59962de91583ebc915da3bf17c18.svg",
     "index.html": "/react-appsearch-dev/index.html",
     "main.27b23324.css.map": "/react-appsearch-dev/static/css/main.27b23324.css.map",
-    "main.9dedb7e3.js.map": "/react-appsearch-dev/static/js/main.9dedb7e3.js.map",
+    "main.0dbd4f21.js.map": "/react-appsearch-dev/static/js/main.0dbd4f21.js.map",
     "787.a42af295.chunk.js.map": "/react-appsearch-dev/static/js/787.a42af295.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.27b23324.css",
-    "static/js/main.9dedb7e3.js"
+    "static/js/main.0dbd4f21.js"
   ]
 }
