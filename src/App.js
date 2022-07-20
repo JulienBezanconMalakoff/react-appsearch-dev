@@ -52,6 +52,9 @@ const config = {
        },
        origine: {
         raw: {}
+       },
+       grand_compte: {
+        raw: {}
        }
     },  
     disjunctiveFacets: [""],
@@ -130,6 +133,7 @@ const CustomResultView = (
     <div className="sui-result__button" >
       <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled>Page : {result.page.raw} </button>
       <button className="sui-result__button-origine" type="button" alt="tag origine bouton non cliquable" disabled>Origine : {result.origine.raw} </button>
+      <button className="sui-result__button-grand_compte" type="button" alt="tag grand_compte bouton non cliquable" disabled>Grand compte : {result.grand_compte.raw} </button>
     </div>
 </li>
 ); 
