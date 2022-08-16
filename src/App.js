@@ -1,3 +1,4 @@
+
 import React from "react";
 // script ELK APP Search
 import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
@@ -10,9 +11,9 @@ import searchUi from '../src/assets/searchUi.svg';
 
 // connector App Search
 const connector = new AppSearchAPIConnector({
-  searchKey: "search-x641r3c42o18p7tarutobyzt",
+  searchKey: "search-3ref3cjys5e2qnb5paussto8",
   engineName: "merge-canton-thales-qpm-toutella",
-  endpointBase: "https://team-search.ent.eu-west-3.aws.elastic-cloud.com"
+  endpointBase: "https://search-reborn.ent.eu-west-3.aws.elastic-cloud.com"
 });
 
 // Configuration App Search
@@ -131,7 +132,7 @@ const CustomResultView = (
       </div>
     </div>
     <div className="sui-result__button" >
-      <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled> à la page {result.page.raw} </button>
+      <button className="sui-result__button-page" type="button" alt="tag page bouton non cliquable" disabled> à la page : {result.page.raw} </button>
       <button className="sui-result__button-origine" type="button" alt="tag origine bouton non cliquable" disabled>{result.origine.raw} </button>
       <button className="sui-result__button-grand_compte" type="button" alt="tag grand_compte bouton non cliquable" disabled>{result.grand_compte.raw} </button>
     </div>
